@@ -38,6 +38,13 @@ const TRAMITES: Record<Cat, string[]> = {
   salud: ["Primera consulta psicológica", "Control psicológico", "Consulta médica general", "Atención dental", "Certificado médico"],
   social: ["Congelar con Gratuidad", "Pérdida de beneficios MINEDUC", "Postulación Becas MINEDUC", "Apelación Gratuidad", "Orientación socioeconómica"],
 };
+// Trámites disponibles según cada profesional de salud (los de asistencia social son comunes a ambos).
+const PRO_TRAMITES: Record<string, string[]> = {
+  [PROFS.salud[0]!]: ["Primera consulta psicológica", "Control psicológico"],
+  [PROFS.salud[1]!]: ["Primera consulta psicológica", "Control psicológico"],
+  [PROFS.salud[2]!]: ["Consulta médica general", "Certificado médico"],
+  [PROFS.salud[3]!]: ["Atención dental"],
+};
 const DOCS: Record<string, string[]> = {
   "Congelar con Gratuidad": [
     "Formulario de solicitud de congelamiento firmado",
@@ -214,7 +221,7 @@ function Agendar({ pre, onAdd, go }: { pre: Cat | ""; onAdd: (c: Cita) => void; 
       </div>
       <div>
         <label className="text-sm font-semibold">Profesional<Req ok={!!prof} /></label>
-        <select className={field} value={prof} disabled={!cat} onChange={(e) => setProf(e.target.value)}>
+        <select className={field} value={prof} disabled={!cat} onChange={(e) => { setProf(e.target.value); setTramite(""); }}>
           <option value="">{cat ? "Selecciona un profesional" : "Primero elige una categoría"}</option>
           {cat && PROFS[cat].map((p) => <option key={p}>{p}</option>)}
         </select>{err(prof)}
@@ -233,9 +240,9 @@ function Agendar({ pre, onAdd, go }: { pre: Cat | ""; onAdd: (c: Cita) => void; 
         <legend className="text-sm font-semibold mb-1">Motivo de Atención</legend>
         <div>
           <label className="text-sm">Trámite<Req ok={!!tramite} /></label>
-          <select className={field} value={tramite} disabled={!cat} onChange={(e) => setTramite(e.target.value)}>
-            <option value="">{cat ? "Selecciona un trámite" : "Primero elige una categoría"}</option>
-            {cat && TRAMITES[cat].map((t) => <option key={t}>{t}</option>)}
+          <select className={field} value={tramite} disabled={!prof} onChange={(e) => setTramite(e.target.value)}>
+            <option value="">{prof ? "Selecciona un trámite" : "Primero elige un profesional"}</option>
+            {(cat === "social" ? TRAMITES.social : prof ? PRO_TRAMITES[prof] ?? [] : []).map((t) => <option key={t}>{t}</option>)}
           </select>{err(tramite)}
         </div>
         {cat === "social" && DOCS[tramite] && (
