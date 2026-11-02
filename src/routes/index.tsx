@@ -24,10 +24,15 @@ const USER = { nombre: "Adolfo Epstein", rol: "202273514-K", carrera: "Ing. Civi
 const CATS: Record<Cat, string> = { salud: "Salud / Psicología", social: "Asistencia Social" };
 const PROFS: Record<Cat, string[]> = {
   salud: [
-    "Ps. Roberto Méndez - Psicólogo, Oficina F-154",
-    "Ps. Daniela Fuentes - Psicóloga, Oficina F-155",
-    "Dr. Felipe Araya - Médico General, Box Salud F-150",
-    "Dra. Valentina Rojas - Dentista, Box Dental F-151",
+    "Sr. Cristóbal Cortázar - Psicólogo(a) Clínico(a), Edificio F, Primer Piso",
+    "Sra. María Berríos - Psicólogo(a) Clínico(a), Edificio F, Primer Piso",
+    "Srta. Andrea Schifferli - Psicólogo(a) Consejería, Edificio F, Primer Piso",
+    "Srta. Josefa Goic - Psicólogo(a) Clínico(a), Edificio F, Primer Piso",
+    "Srta. Soledad Kobilic - Psicólogo(a) Consejería, Edificio F, Primer Piso",
+    "Dr. Stefano Colonelli - Médico(a), Centro Médico y Dental San Joaquín",
+    "Dra. Martina Piulats - Médico(a), Centro Médico y Dental San Joaquín",
+    "Dr. Matías Pérez - Odontólogo(a), Centro Médico y Dental San Joaquín",
+    "Dra. Bernardita Cruchaga - Odontólogo(a), Centro Médico y Dental San Joaquín"
   ],
   social: [
     "Sra. Carmen Cárdenas Mundaca - Asistente Social, Oficina F-152, carmen.cardenas@usm.cl",
@@ -42,8 +47,13 @@ const TRAMITES: Record<Cat, string[]> = {
 const PRO_TRAMITES: Record<string, string[]> = {
   [PROFS.salud[0]!]: ["Primera consulta psicológica", "Control psicológico"],
   [PROFS.salud[1]!]: ["Primera consulta psicológica", "Control psicológico"],
-  [PROFS.salud[2]!]: ["Consulta médica general", "Certificado médico"],
-  [PROFS.salud[3]!]: ["Atención dental"],
+  [PROFS.salud[2]!]: ["Primera consulta psicológica", "Control psicológico"],
+  [PROFS.salud[3]!]: ["Primera consulta psicológica", "Control psicológico"],
+  [PROFS.salud[4]!]: ["Primera consulta psicológica", "Control psicológico"],
+  [PROFS.salud[5]!]: ["Consulta médica general", "Certificado médico"],
+  [PROFS.salud[6]!]: ["Consulta médica general", "Certificado médico"],
+  [PROFS.salud[7]!]: ["Atención dental"],
+  [PROFS.salud[8]!]: ["Atención dental"],
 };
 const DOCS: Record<string, string[]> = {
   "Congelar con Gratuidad": [
