@@ -65,8 +65,26 @@ const fmt = (f: string) => new Date(f + "T12:00").toLocaleDateString("es-CL", { 
 const today = new Date().toISOString().slice(0, 10);
 
 const INICIALES: Cita[] = [
-  { id: "RREE-1042", cat: "salud", prof: PROFS.salud[0]!, fecha: "2026-11-05", bloque: "09:00 - 09:20", tramite: "Control psicológico", comentario: "Seguimiento de sesiones anteriores.", creada: "2026-10-28" },
-  { id: "RREE-1057", cat: "social", prof: PROFS.social[0]!, fecha: "2026-11-09", bloque: "10:55 - 12:05", tramite: "Apelación Gratuidad", comentario: "Revisión de antecedentes.", creada: "2026-10-30" },
+  { 
+    id: "RREE-1042", 
+    cat: "salud", 
+    prof: PROFS.salud[0]!, 
+    fecha: "2026-11-05", 
+    bloque: "09:00 - 09:20", 
+    tramite: "Control psicológico", 
+    comentario: "Seguimiento de sesiones anteriores.", 
+    creada: "2026-10-28" 
+  },
+  { 
+    id: "RREE-1057", 
+    cat: "social", 
+    prof: PROFS.social[0]!, 
+    fecha: "2026-11-06",    
+    bloque: "12:00 - 12:20", 
+    tramite: "Pérdida de beneficios MINEDUC", 
+    comentario: "Estudiante de curso superior. Tope académico.", 
+    creada: "2026-11-01" 
+  },
 ];
 
 type View = "inicio" | "agendar" | "citas";
