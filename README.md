@@ -2,7 +2,7 @@
 
 ## Integrantes
 1. Matias Huiscan Trincado
-2. [Nombre Integrante 2]
+2. Agustin Santibañez
 3. Alexander Rodrigo Toro Astudillo
 
 ## Metas Implementadas
